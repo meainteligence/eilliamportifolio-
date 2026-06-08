@@ -1,0 +1,258 @@
+/* ==========================================
+   1. PLANO DE FUNDO E TRAVA LATERAL (IPHONE/MAC)
+   ========================================== */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* Trava o scroll para os lados em qualquer dispositivo */
+  overflow-x: hidden; 
+  /* Renderização de fontes ultra-nítida para telas Retina da Apple */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-image: linear-gradient(
+    to right,
+    /* --- METADE ESQUERDA (Escuro para o Claro) --- */
+    #112229 0%, #112229 3.84%,       
+    #2a3235 3.84%, #2a3235 7.69%,     
+    #4a443f 7.69%, #4a443f 11.53%,    
+    #69564c 11.53%, #69564c 15.38%,   
+    #886a5a 15.38%, #886a5a 19.23%,   
+    #a67e6c 19.23%, #a67e6c 23.07%,   
+    #be927e 23.07%, #be927e 26.92%,   
+    #cca28e 26.92%, #cca28e 30.76%,   
+    #d1aba1 30.76%, #d1aba1 34.61%,   
+    #cca59c 34.61%, #cca59c 38.46%,   
+    #be9a92 38.46%, #be9a92 42.30%,   
+    #ab8e87 42.30%, #ab8e87 46.15%,   
+    #98847e 46.15%, #98847e 50%,      
+
+    /* --- METADE DIREITA (Centro para o Verde/Azul) --- */
+    #8c8681 50%, #8c8681 53.84%,      
+    #7d8983 53.84%, #7d8983 57.69%,   
+    #6d8a83 57.69%, #6d8a83 61.53%,   
+    #5c8a82 61.53%, #5c8a82 65.38%,   
+    #4a8781 65.38%, #4a8781 69.23%,   
+    #3c817f 69.23%, #3c817f 73.07%,   
+    #2c7a7b 73.07%, #2c7a7b 76.92%,   
+    #1b7175 76.92%, #1b7175 80.76%,   
+    #0f676c 80.76%, #0f676c 84.61%,   
+    #025b61 84.61%, #025b61 88.46%,   
+    #004f54 88.46%, #004f54 92.30%,   
+    #004146 92.30%, #004146 96.15%,   
+    #013136 96.15%, #013136 100%      
+  );
+}
+
+/* ==========================================
+   2. TEXTOS E COMPONENTES DE TEXTO
+   ========================================== */
+.text {
+  margin-top: 45px;
+  text-align: center;
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  color: white;
+  padding: 10px 20px;
+  max-width: 100%;
+}
+
+/* ==========================================
+   3. CONTAINER DE IMAGENS RESPONSIVO
+   ========================================== */
+.container {
+  display: flex;         
+  justify-content: center; 
+  gap: 15px;            
+  width: 100%;          
+  max-width: 100%;       
+  padding: 15px;        
+  box-sizing: border-box;
+}
+
+.container img {
+  flex: 1;              
+  max-width: 400px;     
+  width: 100%;          
+  height: auto;         
+  border-radius: 30px;
+  border: solid black 2px;
+  object-fit: cover;    
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container img {
+    max-width: 90%; 
+  }
+}
+
+/* ==========================================
+   4. BOTÃO DE VOLTAR DO TOPO (.button)
+   ========================================== */
+.button {
+  background-color: #4a443f; 
+  color: #ffffff;            
+  width: 110px;  /* Mantido tamanho original */
+  height: 40px; /* Mantido tamanho original */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  border-radius: 30px;
+  font-weight: 600;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
+  padding-left: 8px;
+  
+  /* Posicionamento original fixado no canto esquerdo */
+  margin-top: 40px;
+  margin-left: 55px;
+  
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  transition: background-color 0.5s, transform 0.4s;
+}
+
+.svgIcon {
+  height: 25px; /* Tamanho original do ícone */
+  transition-duration: 1.5s;
+}
+
+.bell path {
+  fill: rgb(19, 19, 19);
+}
+
+.button:hover {
+  background-color: #cca28e; 
+  color: #4a443f;
+  transition-duration: .7s;
+}
+
+.button:hover .bell path {
+  fill: #4a443f;
+}
+
+.button:active {
+  transform: scale(0.97);
+  transition-duration: .4s;
+}
+
+.button:hover .svgIcon {
+  transform: rotate(15deg);
+  transition-duration: 0.5s;
+}
+
+/* ==========================================
+   5. BOTÃO NEUMÓRFICO (.neu-button)
+   ========================================== */
+.neu-button {
+  background-color: #886a5a;
+  border-radius: 50px;
+  box-shadow: inset 4px 4px 10px #69564c, inset -4px -4px 10px #a67e6c;
+  color: #4d4d4d;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 15px 40px;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid rgb(206, 206, 206);
+  display: block;
+  margin: 30px auto; 
+  width: fit-content;
+}
+
+.neu-button:hover {
+  box-shadow: inset 2px 2px 5px #69564c, inset -2px -2px 5px #a67e6c, 2px 2px 5px #69564c, -2px -2px 5px #a67e6c;
+}
+
+.neu-button:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 5px #69564c, inset -2px -2px 5px #a67e6c, 2px 2px 5px #69564c, -2px -2px 5px #a67e6c;
+}
+
+/* ==========================================
+   6. BOTÃO DESLIZANTE EXPLORAR (.cssbuttons-io-button)
+   ========================================== */
+.cssbuttons-io-button {
+  background: #4a443f; 
+  color: #cca28e;      
+  box-shadow: inset 0 0 1.6em -0.6em #2a2624; 
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+  
+  /* Layout padrão para Computadores (Mac/PC) */
+  margin-top: 20px;
+  margin-left: 55px;
+  max-width: calc(100% - 110px);
+  transition: all 0.3s ease;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #1d556b;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #cca28e; 
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+/* REGRA EXCLUSIVA PARA TELEFONES (CENTRALIZA SÓ O BOTÃO EXPLORAR) */
+@media (max-width: 768px) {
+  .cssbuttons-io-button {
+    margin-left: auto;  
+    margin-right: auto; 
+    max-width: 220px;   
+  }
+}
